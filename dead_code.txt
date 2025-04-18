@@ -1,0 +1,78 @@
+
+# @render_plotly
+# def top_10_perscribed():
+#     top_10_count = px.bar(annual_sum_count.sort_values('Total Quantity').tail(20), x='Total Quantity', y='VMP_NM',
+#                           title='Annual prescribed by quantity')
+#     return top_10_count
+#
+#
+# prescription_lcg = prescription_by_lcg(prescriptions)
+# print(prescription_lcg.sort_values('count', ascending=False))
+#
+#
+# @render_plotly
+# def prescriptions_belfast():
+#     top_10_by_lcg = prescription_lcg[prescription_lcg['LCG'] == 'Belfast']
+#     figure_top_10_belfast = px.pie(top_10_by_lcg.sort_values('count').tail(20), values='count', names='VMP_NM',
+#                                    title='Top 10 Prescribed in Belfast')
+#     figure_top_10_belfast.update_traces(textinfo='value')
+#     return figure_top_10_belfast
+#
+#
+# @render_plotly
+# def prescriptions_northern():
+#     top_10_by_lcg = prescription_lcg[prescription_lcg['LCG'] == 'Northern']
+#     figure_top_10_belfast = px.pie(top_10_by_lcg.sort_values('count').tail(20), values='count', names='VMP_NM',
+#                                    title='Top 10 Prescribed in Northern')
+#     figure_top_10_belfast.update_traces(textinfo='value')
+#     return figure_top_10_belfast
+#
+#
+# @render_plotly
+# def prescriptions_western():
+#     top_10_by_lcg = prescription_lcg[prescription_lcg['LCG'] == 'Western']
+#     figure_top_10_belfast = px.pie(top_10_by_lcg.sort_values('count').tail(20), values='count', names='VMP_NM',
+#                                    title='Top 10 Prescribed in Western')
+#     figure_top_10_belfast.update_traces(textinfo='value')
+#     return figure_top_10_belfast
+#
+#
+# @render_plotly
+# def prescriptions_south_eastern():
+#     top_10_by_lcg = prescription_lcg[prescription_lcg['LCG'] == 'South Eastern']
+#     figure_top_10_belfast = px.pie(top_10_by_lcg.sort_values('count').tail(20), values='count', names='VMP_NM',
+#                                    title='Top 10 Prescribed in South Eastern')
+#     figure_top_10_belfast.update_traces(textinfo='value')
+#     return figure_top_10_belfast
+#
+#
+# @render_plotly
+# def prescriptions_south():
+#     top_10_by_lcg = prescription_lcg[prescription_lcg['LCG'] == 'Southern']
+#     figure_top_10_belfast = px.pie(top_10_by_lcg.sort_values('count').tail(20), values='count', names='VMP_NM',
+#                                    title='Top 10 Prescribed in Southern')
+#     figure_top_10_belfast.update_traces(textinfo='value')
+#     return figure_top_10_belfast
+
+
+@render_plotly
+def top_10_prescribed_cost():
+    top_10_prescribed_data = px.bar(prescribed_data.sort_values('Gross Cost (£)').tail(20), x='Gross Cost (£)',
+                                    y='VMP_NM', title='Prescribed drugs')
+    return top_10_prescribed_data
+
+
+ conditions_by_bnf_chapter_data = (
+    conditions_by_bnf_chapter_data.replace({'BNF Chapter': {'-': 0}})
+    .astype({'BNF Chapter': 'int'})
+    .query('0 < `BNF Chapter` < 20')
+    .merge(bnf_names, left_on='BNF Chapter', right_on='BNF_Chapter_Number')
+)
+
+# conditions_by_bnf_chapter_data['BNF Chapter'].replace('-', 0, inplace=True)
+#
+# conditions_by_bnf_chapter_data['BNF Chapter'] = conditions_by_bnf_chapter_data['BNF Chapter'].astype(int)
+# conditions_by_bnf_chapter_data = conditions_by_bnf_chapter_data[conditions_by_bnf_chapter_data['BNF Chapter'] < 20]
+# conditions_by_bnf_chapter_data = conditions_by_bnf_chapter_data[conditions_by_bnf_chapter_data['BNF Chapter'] > 0]
+# conditions_by_bnf_chapter_data = conditions_by_bnf_chapter_data.merge(bnf_names, left_on='BNF Chapter',
+#

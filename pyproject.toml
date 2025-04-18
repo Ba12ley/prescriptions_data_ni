@@ -1,0 +1,16 @@
+[project]
+name = "perscription-data-ni"
+version = "0.1.0"
+description = "Experimenting with Shiny for Python, Pandas and PyArrow.  Using Northern Ireland Prescription Data"
+requires-python = ">=3.13"
+dependencies = [
+    "bs4>=0.0.2",
+    "chardet>=5.2.0",
+    "ipyleaflet>=0.19.2",
+    "pandas>=2.2.3",
+    "plotly>=6.0.0",
+    "pyarrow>=19.0.1",
+    "requests>=2.32.3",
+    "shiny>=1.2.1",
+    "shinywidgets>=0.5.1",
+]
