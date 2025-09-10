@@ -1,6 +1,6 @@
 import json
 from random import random, choice
-
+import plotly.express as px
 import pandas as pd
 from ipyleaflet import Map, basemaps, GeoJSON
 from shiny import render_plot
@@ -8,7 +8,7 @@ from shiny.express import ui, render, input
 from shinywidgets import render_plotly, render_widget
 from helpers import read_data, annual_sum, annual_sum_by_prescription, prescription_by_lcg, annual_count, \
     annual_spend_by_year, annual_top_10, conditions_by_bnf_chapter
-import plotly.express as px
+
 
 path_prescriptions = './data/prescribing_data'
 path_practice_details = './data/practice_name'

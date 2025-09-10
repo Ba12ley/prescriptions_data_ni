@@ -10,3 +10,4 @@ This was an exercise for me to ingest, clean and present a dataset. Still a work
 - [Pandas](https://pandas.pydata.org/)
 - [PyArrow](https://arrow.apache.org/docs/python/index.html)
 - [Shiny for Python](https://shiny.posit.co/py/)
+
